@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<CrudDia5.DTOs.MisionEmergenciaDto>
+
+<h2>Misiones de Emergencia</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tipo de Mision</th>
+            <th>Destino</th>
+            <th>Duración</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mision in Model)
+        {
+            <tr>
+                <td>@mision.ID</td>
+                <td>@mision.TipoMision</td>
+                <td>@mision.Destino</td>
+                <td>@mision.Duracion</td>
+                <td>@mision.DateOnly</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = mision.ID })">Editar</a> |
+
+                    <a href="@Url.Action("Details", new { id = mision.ID })">Detalles</a> |
+                  
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")">Crear Nueva Misión</a>
